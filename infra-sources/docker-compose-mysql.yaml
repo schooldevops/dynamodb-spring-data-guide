@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  mysql-db:
+    image: mysql:8.0
+    platform: linux/arm64
+    restart: always
+    volumes:
+      - ./db/mysql/data:/var/lib/mysql
+      - ./db/mysql/init:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ssp1234
+      TZ: Asia/Seoul
